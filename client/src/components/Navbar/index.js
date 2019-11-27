@@ -4,7 +4,7 @@ import "./style.css";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-md navbar-light bg-light">
+    <nav className="navbar navbar-expand-md navbar-light bg-light fixed-top py-4">
       <Link className="navbar-brand" to="/">
         Google Books Search
       </Link>
@@ -21,18 +21,19 @@ function Navbar() {
                   : ""
               }`}
             >
-                Search
+              Search
             </Link>
           </li>
 
           <li className="nav-item">
-              <Link to="/saved" className={`nav-link${
-                window.location.pathname === "/saved"
-                  ? " active"
-                  : ""
-              }`}>
-                  Saved
-              </Link>
+            <Link
+              to="/saved"
+              className={`nav-link${
+                window.location.pathname === "/saved" ? " active" : ""
+              }`}
+            >
+              Saved
+            </Link>
           </li>
         </ul>
       </div>
