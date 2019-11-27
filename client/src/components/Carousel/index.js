@@ -23,7 +23,22 @@ const Carousel = props => {
 
         <div className="carousel-inner text-center">
           <div className="carousel-item active">
-            <img className="carouselImage d-block" src="bookshelf-1.jpg" alt="gravity's-rainbow" />
+            <img className="carouselImage d-block" src="bookshelf-1.jpg" alt="first-slide" />
+
+            <div className="carousel-caption">
+              <h1 className="mb-5">Google Books Search</h1>
+
+
+              <h4 className="my-5 pb-3">Search for and save books you're interested in.</h4>
+            </div>
+          </div>
+
+          <div className="carousel-item">
+            <img className="carouselImage d-block" src="bookshelf-1.jpg" alt="second-slide" />
+          </div>
+
+          <div className="carousel-item">
+            <img className="carouselImage d-block" src="bookshelf-1.jpg" alt="final-slide" />
           </div>
         </div>
       </div>
