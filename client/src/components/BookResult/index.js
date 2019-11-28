@@ -1,10 +1,6 @@
 import React from "react";
 import "./style.css";
 
-// SWITCH BETWEEN DELETE AND SAVE BUTTON BASED ON URL
-// (LIKE WHAT YOU DID IN NAVBAR TO SET .active CLASS)
-// OR PROPERTY OF props PASSED INTO BookList VIA
-// THE PAGE BEING RENDERED
 const BookResult = props => {
   return (
     <div className="border-bottom border-dark p-4">
@@ -17,7 +13,9 @@ const BookResult = props => {
         <div className="col-6 d-flex justify-content-end align-items-center">
           <button
             className="viewButton btn btn-danger mr-2"
-            href={props.book.link}
+            onClick={() => {
+              window.open(props.book.link);
+            }}
           >
             View
           </button>
@@ -32,7 +30,9 @@ const BookResult = props => {
 
       <div className="row mb-3">
         <div className="col-12">
-          <h5 className="mb-0">{`Written by ${props.makeAuthorString(props.book.authors)}`}</h5>
+          <h5 className="mb-0">{`Written by ${props.makeAuthorString(
+            props.book.authors
+          )}`}</h5>
         </div>
       </div>
 
@@ -48,5 +48,5 @@ const BookResult = props => {
     </div>
   );
 };
-//{`Written by ${props.book.authors[0]}`}
+
 export default BookResult;

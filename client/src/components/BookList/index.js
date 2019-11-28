@@ -2,10 +2,6 @@ import React from "react";
 import "./style.css";
 import BookResult from "../BookResult";
 
-// SWITCH BETWEEN DELETE AND SAVE BUTTON BASED ON URL
-// (LIKE WHAT YOU DID IN NAVBAR TO SET .active CLASS)
-// OR PROPERTY OF props PASSED INTO BookList VIA
-// THE PAGE BEING RENDERED
 const BookList = props => {
   return (
     <div className="bookListContainer border border-dark my-4">
