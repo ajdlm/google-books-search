@@ -8,9 +8,11 @@ import "./style.css";
 const BookList = props => {
   return (
     <div className="border border-dark my-4">
-      <h4 className="text-center m-2">Results</h4>
+      <h4 className="text-center m-2">{props.listName}</h4>
 
-      <div className="border border-dark mx-3 mb-4" style={{minHeight: "100px"}}></div>
+      <div className="border border-dark mx-3 mb-4" style={{minHeight: "100px"}}>
+          
+      </div>
     </div>
   );
 };

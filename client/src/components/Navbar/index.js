@@ -4,7 +4,7 @@ import "./style.css";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-md navbar-light bg-light fixed-top py-4">
+    <nav className="navbar navbar-expand navbar-light bg-light fixed-top py-4">
       <Link className="navbar-brand" to="/">
         Google Books Search
       </Link>

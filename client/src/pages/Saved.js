@@ -5,8 +5,7 @@ import BookList from "../components/BookList";
 
 class Saved extends Component {
   state = {
-    query: "",
-    results: []
+    savedBooks: []
   };
 
   render() {
@@ -15,7 +14,7 @@ class Saved extends Component {
         <Jumbotron message="Browse books saved from previous searches." />
 
         <BootstrapContainer>
-          <BookList />
+          <BookList listName="Saved Books" />
         </BootstrapContainer>
       </div>
     );

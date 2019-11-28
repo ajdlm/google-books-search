@@ -3,11 +3,45 @@ import Jumbotron from "../components/Jumbotron";
 import BootstrapContainer from "../components/BootstrapContainer";
 import SearchBar from "../components/SearchBar";
 import BookList from "../components/BookList";
+import axios from "axios";
 
 class Search extends Component {
   state = {
     query: "",
     results: []
+  };
+
+  changeSearchInput = event => {
+    this.setState({ query: event.target.value });
+  };
+
+  searchForBook = event => {
+    event.preventDefault();
+
+    const newResultsArray = [];
+
+    axios
+      .get("https://www.googleapis.com/books/v1/volumes?q=" + this.state.query)
+      .then(results => {
+        results.data.items.map(book => {
+          const newResult = {
+            title: book.volumeInfo.title,
+
+            authors: book.volumeInfo.authors,
+
+            description: book.volumeInfo.description,
+
+            image: book.volumeInfo.imageLinks.thumbnail,
+
+            link: book.volumeInfo.infoLink
+          };
+
+          newResultsArray.push(newResult);
+        });
+
+        this.setState({ results: newResultsArray });
+      })
+      .catch(error => console.log(error));
   };
 
   render() {
@@ -16,9 +50,13 @@ class Search extends Component {
         <Jumbotron message="Search for and save books you're interested in." />
 
         <BootstrapContainer>
-          <SearchBar />
+          <SearchBar
+            query={this.state.query}
+            changeSearchInput={this.changeSearchInput}
+            searchForBook={this.searchForBook}
+          />
 
-          <BookList />
+          <BookList listName="Results" bookArray={this.state.results} />
         </BootstrapContainer>
       </div>
     );
