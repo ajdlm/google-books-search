@@ -11,7 +11,7 @@ function Navbar() {
 
       <div>
         <ul className="navbar-nav">
-          <li clasName="nav-item">
+          <li className="nav-item">
             <Link
               to="/"
               className={`nav-link${
