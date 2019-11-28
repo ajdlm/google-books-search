@@ -1,7 +1,8 @@
 import React from "react";
 import Carousel from "../components/Carousel";
-import BootstrapContainer from "../components/BootstrapContainer"
+import BootstrapContainer from "../components/BootstrapContainer";
 import SearchBar from "../components/SearchBar";
+import BookList from "../components/BookList";
 
 const Search = () => {
   return (
@@ -10,6 +11,8 @@ const Search = () => {
 
       <BootstrapContainer>
         <SearchBar />
+
+        <BookList />
       </BootstrapContainer>
     </div>
   );
