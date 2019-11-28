@@ -44,6 +44,22 @@ class Search extends Component {
       .catch(error => console.log(error));
   };
 
+  makeAuthorString = authorArray => {
+    let authorString = "";
+
+    for (let i = 0; i < authorArray.length; i++) {
+      if (i === 0) {
+        authorString = authorArray[i];
+      } else if (i < authorArray.length - 1) {
+        authorString = authorString + ", " + authorArray[i];
+      } else {
+        authorString = authorString + " and " + authorArray[i];
+      }
+    }
+
+    return authorString;
+  };
+
   render() {
     return (
       <div>
@@ -56,7 +72,12 @@ class Search extends Component {
             searchForBook={this.searchForBook}
           />
 
-          <BookList listName="Results" bookArray={this.state.results} />
+          <BookList
+            listName="Results"
+            bookArray={this.state.results}
+            buttonType="Save"
+            makeAuthorString={this.makeAuthorString}
+          />
         </BootstrapContainer>
       </div>
     );
