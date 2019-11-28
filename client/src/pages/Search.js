@@ -1,21 +1,28 @@
-import React from "react";
-import Carousel from "../components/Carousel";
+import React, { Component } from "react";
+import Jumbotron from "../components/Jumbotron";
 import BootstrapContainer from "../components/BootstrapContainer";
 import SearchBar from "../components/SearchBar";
 import BookList from "../components/BookList";
 
-const Search = () => {
-  return (
-    <div>
-      <Carousel />
+class Search extends Component {
+  state = {
+    query: "",
+    results: []
+  };
 
-      <BootstrapContainer>
-        <SearchBar />
+  render() {
+    return (
+      <div>
+        <Jumbotron message="Search for and save books you're interested in." />
 
-        <BookList />
-      </BootstrapContainer>
-    </div>
-  );
-};
+        <BootstrapContainer>
+          <SearchBar />
+
+          <BookList />
+        </BootstrapContainer>
+      </div>
+    );
+  }
+}
 
 export default Search;

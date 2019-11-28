@@ -1,18 +1,25 @@
-import React from "react";
-import Carousel from "../components/Carousel";
+import React, { Component } from "react";
+import Jumbotron from "../components/Jumbotron";
 import BootstrapContainer from "../components/BootstrapContainer";
 import BookList from "../components/BookList";
 
-const Saved = () => {
-  return (
-    <div>
-      <Carousel />
+class Saved extends Component {
+  state = {
+    query: "",
+    results: []
+  };
 
-      <BootstrapContainer>
-        <BookList />
-      </BootstrapContainer>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        <Jumbotron message="Browse books saved from previous searches." />
+
+        <BootstrapContainer>
+          <BookList />
+        </BootstrapContainer>
+      </div>
+    );
+  }
+}
 
 export default Saved;
