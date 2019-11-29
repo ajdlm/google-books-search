@@ -22,6 +22,11 @@ const BookResult = props => {
 
           <button
             className={`${props.buttonType.toLowerCase()}Button btn btn-danger ml-1`}
+            onClick={() => {
+              props.buttonType === "Save"
+                ? props.secondButtonEvent(props.book)
+                : props.secondButtonEvent(props.book._id);
+            }}
           >
             {props.buttonType}
           </button>

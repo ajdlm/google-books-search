@@ -60,6 +60,17 @@ class Search extends Component {
     return authorString;
   };
 
+  addNewBook = newBook => {
+    axios
+      .post("/api/books", newBook)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   render() {
     return (
       <div>
@@ -77,6 +88,7 @@ class Search extends Component {
             bookArray={this.state.results}
             buttonType="Save"
             makeAuthorString={this.makeAuthorString}
+            secondButtonEvent={this.addNewBook}
           />
         </BootstrapContainer>
       </div>
