@@ -37,6 +37,8 @@ class Saved extends Component {
         authorString = authorString + " and " + authorArray[i];
       }
     }
+
+    return authorString;
   };
 
   deleteBook = bookId => {
