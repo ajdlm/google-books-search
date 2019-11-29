@@ -10,7 +10,7 @@ import "./App.css";
 function App() {
   return (
     <Router>
-      <div className="appWrapper">
+      <div className="appWrapper bg-light">
         <div className="notFooter">
           <Navbar />
 
