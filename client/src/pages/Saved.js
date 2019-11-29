@@ -13,8 +13,6 @@ class Saved extends Component {
     axios
       .get("/api/books")
       .then(response => {
-        console.log(response.data);
-
         this.setState({ savedBooks: response.data });
       })
       .catch(error => {

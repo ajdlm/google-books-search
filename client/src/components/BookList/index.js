@@ -11,18 +11,14 @@ const BookList = props => {
         className="border border-dark mx-3 mb-4"
         style={{ minHeight: "100px" }}
       >
-        {props.bookArray !== undefined ? (
-          props.bookArray.map(book => (
-            <BookResult
-              book={book}
-              buttonType={props.buttonType}
-              makeAuthorString={props.makeAuthorString}
-              secondButtonEvent={props.secondButtonEvent}
-            />
-          ))
-        ) : (
-          <h3>Sorry, no books available to be viewed.</h3>
-        )}
+        {props.bookArray.map(book => (
+          <BookResult
+            book={book}
+            buttonType={props.buttonType}
+            makeAuthorString={props.makeAuthorString}
+            secondButtonEvent={props.secondButtonEvent}
+          />
+        ))}
       </div>
     </div>
   );
