@@ -6,7 +6,7 @@ import axios from "axios";
 
 class Saved extends Component {
   state = {
-    saved: []
+    savedBooks: []
   };
 
   getSavedBooks = () => {
@@ -63,7 +63,7 @@ class Saved extends Component {
         <BootstrapContainer>
           <BookList
             listName="Saved Books"
-            bookArray={this.state.saved}
+            bookArray={this.state.savedBooks}
             buttonType="Delete"
             makeAuthorString={this.makeAuthorString}
             secondButtonEvent={this.deleteBook}

@@ -43,7 +43,7 @@ const BookResult = props => {
 
       <div className="row">
         <div className="col-2 d-flex align-items-center">
-          <img src={props.book.image} alt="book-image" />
+          <img src={props.book.image} alt="book-cover" />
         </div>
 
         <div className="col-10">
