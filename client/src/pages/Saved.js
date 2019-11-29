@@ -6,14 +6,15 @@ import axios from "axios";
 
 class Saved extends Component {
   state = {
-    savedBooks: []
+    saved: []
   };
 
   getSavedBooks = () => {
     axios
       .get("/api/books")
       .then(response => {
-        console.log(response);
+        console.log(response.data);
+
         this.setState({ savedBooks: response.data });
       })
       .catch(error => {
@@ -62,7 +63,7 @@ class Saved extends Component {
         <BootstrapContainer>
           <BookList
             listName="Saved Books"
-            bookArray={this.state.savedBooks}
+            bookArray={this.state.saved}
             buttonType="Delete"
             makeAuthorString={this.makeAuthorString}
             secondButtonEvent={this.deleteBook}
