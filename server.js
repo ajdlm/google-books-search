@@ -21,7 +21,38 @@ const MONGODB_URI =
 // Connect Mongo database to Mongoose
 mongoose.connect(MONGODB_URI);
 
-// Define API routes here
+// Find all books in the database
+app.get("/api/books", function(req, res) {
+  Book.find({})
+    .then(booksFound => {
+      res.json(booksFound);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+// Add a new book to the database
+app.post("/api/books", (req, res) => {
+  Book.create(req.body)
+    .then(newBook => {
+      res.json(newBook);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+// Delete a book from the database
+app.delete("/api/books/:id", (req, res) => {
+  Book.deleteOne({ _id: req.params.id })
+    .then(result => {
+      res.json(result);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
 
 // Send every other request to the React app
 // Define any API routes before this runs
