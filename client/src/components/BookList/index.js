@@ -16,6 +16,8 @@ const BookList = props => {
             book={book}
             buttonType={props.buttonType}
             makeAuthorString={props.makeAuthorString}
+            savedBooks={props.savedBooks}
+            isBookSaved={props.isBookSaved}
             secondButtonEvent={props.secondButtonEvent}
           />
         ))}

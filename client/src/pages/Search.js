@@ -8,8 +8,24 @@ import axios from "axios";
 class Search extends Component {
   state = {
     query: "",
-    results: []
+    results: [],
+    savedBooks: []
   };
+
+  getSavedBooks = () => {
+    axios
+      .get("/api/books")
+      .then(response => {
+        this.setState({ savedBooks: response.data });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  componentDidMount() {
+    this.getSavedBooks();
+  }
 
   changeSearchInput = event => {
     this.setState({ query: event.target.value });
@@ -60,11 +76,27 @@ class Search extends Component {
     return authorString;
   };
 
+  isBookSaved = (bookLink, savedBooks) => {
+    let alreadySaved = false;
+
+    for (let j = 0; j < savedBooks.length; j++) {
+      if (savedBooks[j].link === bookLink) {
+        alreadySaved = true;
+
+        break;
+      }
+    }
+
+    return alreadySaved;
+  };
+
   addNewBook = newBook => {
     axios
       .post("/api/books", newBook)
       .then(response => {
         console.log(response);
+
+        this.getSavedBooks();
       })
       .catch(error => {
         console.log(error);
@@ -86,8 +118,10 @@ class Search extends Component {
           <BookList
             listName="Results"
             bookArray={this.state.results}
+            savedBooks={this.state.savedBooks}
             buttonType="Save"
             makeAuthorString={this.makeAuthorString}
+            isBookSaved={this.isBookSaved}
             secondButtonEvent={this.addNewBook}
           />
         </BootstrapContainer>

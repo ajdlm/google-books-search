@@ -40,6 +40,10 @@ class Saved extends Component {
     return authorString;
   };
 
+  neverShowSaved = () => {
+    return false;
+  };
+
   deleteBook = bookId => {
     axios
       .delete("/api/books/" + bookId)
@@ -64,6 +68,7 @@ class Saved extends Component {
             bookArray={this.state.savedBooks}
             buttonType="Delete"
             makeAuthorString={this.makeAuthorString}
+            isBookSaved={this.neverShowSaved}
             secondButtonEvent={this.deleteBook}
           />
         </BootstrapContainer>

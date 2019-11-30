@@ -21,14 +21,20 @@ const BookResult = props => {
           </button>
 
           <button
-            className={`${props.buttonType.toLowerCase()}Button btn btn-danger ml-1`}
+            className={`${props.buttonType.toLowerCase()}Button btn ${
+              props.isBookSaved(props.book.link, props.savedBooks)
+                ? "btn-success"
+                : "btn-danger"
+            } ml-1`}
             onClick={() => {
               props.buttonType === "Save"
                 ? props.secondButtonEvent(props.book)
                 : props.secondButtonEvent(props.book._id);
             }}
           >
-            {props.buttonType}
+            {props.isBookSaved(props.book.link, props.savedBooks)
+              ? "Saved!"
+              : props.buttonType}
           </button>
         </div>
       </div>
