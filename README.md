@@ -16,7 +16,7 @@ A web app that lets you search the Google Books API for books and save them to a
 
 * On this page, Delete buttons will appear in place of the Save and Saved! buttons. Clicking on such a button will delete the corresponding book from the database.
 
-* Clicking on a View button on either page will open corresponding book's Google Books information page.
+* Clicking on a View button on either page will open the corresponding book's Google Books information page.
 
 ## Technologies Used
 
@@ -40,4 +40,4 @@ A web app that lets you search the Google Books API for books and save them to a
 
 ## Author
 
-Antonio de las Morenas -- responsible for coding the app (having started with a boilerplate that already had node, express and react set up)
+Antonio de las Morenas -- responsible for coding the app (having started with a boilerplate that already had Node.js, Express.js and React set up)
