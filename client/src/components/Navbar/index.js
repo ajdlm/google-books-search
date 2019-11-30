@@ -14,9 +14,8 @@ function Navbar() {
           <li className="nav-item">
             <NavLink
               to="/"
-              className={`nav-link${
-                window.location.pathname === "/search" ? " active" : ""
-              }`}
+              className={`nav-link`}
+              isActive={(_, { pathname }) => pathname.match(/^(\/|\/search)$/)}
               activeClassName="active"
               exact
             >
