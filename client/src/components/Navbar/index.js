@@ -14,10 +14,11 @@ function Navbar() {
           <li className="nav-item">
             <NavLink
               to="/"
-              className={`nav-link`}
+              className="nav-link"
+              // Make it so this NavLink is active only when the
+              // path exactly matches either "/" or "/search"
               isActive={(_, { pathname }) => pathname.match(/^(\/|\/search)$/)}
               activeClassName="active"
-              exact
             >
               Search
             </NavLink>
