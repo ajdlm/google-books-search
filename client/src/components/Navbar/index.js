@@ -1,39 +1,38 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./style.css";
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand navbar-light bg-light fixed-top py-4 border-bottom border-dark">
-      <Link className="navbar-brand" to="/">
+      <NavLink className="navbar-brand" to="/">
         Google Books Search
-      </Link>
+      </NavLink>
 
       <div>
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link
+            <NavLink
               to="/"
               className={`nav-link${
-                window.location.pathname === "/" ||
-                window.location.pathname === "/search"
-                  ? " active"
-                  : ""
+                window.location.pathname === "/search" ? " active" : ""
               }`}
+              activeClassName="active"
+              exact
             >
               Search
-            </Link>
+            </NavLink>
           </li>
 
           <li className="nav-item">
-            <Link
+            <NavLink
               to="/saved"
-              className={`nav-link${
-                window.location.pathname === "/saved" ? " active" : ""
-              }`}
+              className="nav-link"
+              activeClassName="active"
+              exact
             >
               Saved
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
