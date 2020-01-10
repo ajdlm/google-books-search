@@ -2,6 +2,8 @@
 
 A web app that lets you search the Google Books API for books and save them to a database for later perusal.
 
+Deployed app at https://ajdlm-google-books-search.herokuapp.com/.
+
 ## How to Use This App
 
 * While on the Search page, enter a query into the input field and either press enter or click on the Search button to search for a book.
