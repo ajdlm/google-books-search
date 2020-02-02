@@ -43,6 +43,9 @@ const BookResult = props => {
       <div className="row mb-3">
         <div className="col-12 authorStringDiv">
           <h5 className="mb-0">
+            {/* Check whether we've found at least one author attached to the
+            book. If we have, display the names of any authors we've found; if
+            not, display a message indicating that we haven't found an author. */}
             {props.book.authors && props.book.authors.length > 0
               ? `Written by ${props.makeAuthorString(props.book.authors)}`
               : "No Author Found"}
@@ -56,7 +59,9 @@ const BookResult = props => {
         </div>
 
         <div className="col-lg-10 col-md-9 col-sm-8">
-          {/* Use the react-show-more npm package component to truncate text that's too long with the option of clicking on the `show more` link in order to see all of it. */}
+          {/* Use the react-show-more npm package component to truncate text
+          that's too long with the option of clicking on the `show more` link in
+          order to see all of it. */}
           <ShowMore lines={8} more="show more" less="show less" anchorClass="">
             {props.book.description}
           </ShowMore>
