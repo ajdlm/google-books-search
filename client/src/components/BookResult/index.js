@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import ShowMore from "react-show-more";
 
 const BookResult = props => {
   return (
@@ -53,7 +54,10 @@ const BookResult = props => {
         </div>
 
         <div className="col-lg-10 col-md-9 col-sm-8">
-          <p className="mb-0">{props.book.description}</p>
+          {/* Use the react-show-more npm package component to truncate text that's too long with the option of clicking on the `show more` link in order to see all of it. */}
+          <ShowMore lines={8} more="show more" less="show less" anchorClass="">
+            {props.book.description}
+          </ShowMore>
         </div>
       </div>
     </div>
