@@ -42,9 +42,11 @@ const BookResult = props => {
 
       <div className="row mb-3">
         <div className="col-12 authorStringDiv">
-          <h5 className="mb-0">{`Written by ${props.makeAuthorString(
-            props.book.authors
-          )}`}</h5>
+          <h5 className="mb-0">
+            {props.book.authors && props.book.authors.length > 0
+              ? `Written by ${props.makeAuthorString(props.book.authors)}`
+              : "No Author Found"}
+          </h5>
         </div>
       </div>
 
