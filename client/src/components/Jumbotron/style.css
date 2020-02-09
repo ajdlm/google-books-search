@@ -1,4 +1,17 @@
 .jumbotron {
-    margin-top: 88px;
-    background-size: cover;
+  margin-top: 88px;
+  background-size: cover;
+  border-radius: 0;
+}
+
+@media screen and (max-width: 360px) {
+  .jumbotron {
+    margin-top: 86px;
+  }
+}
+
+@media screen and (max-width: 335px) {
+  .jumbotron {
+    margin-top: 84px;
+  }
 }

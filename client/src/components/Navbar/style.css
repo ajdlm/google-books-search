@@ -1,0 +1,24 @@
+@media screen and (max-width: 360px) {
+  .navbar-brand {
+    font-size: 17.5px;
+    margin-right: 14px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+}
+
+@media screen and (max-width: 335px) {
+  .navbar-brand {
+    font-size: 16px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    padding-left: 6.5px !important;
+    padding-right: 6.5px !important;
+  }
+}
