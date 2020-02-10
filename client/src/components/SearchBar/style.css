@@ -1,0 +1,15 @@
+@media screen and (max-width: 360px) {
+  .bookSearch,
+  .searchButton {
+    font-size: 14px;
+  }
+
+  .bookSearch,
+  .searchButton {
+    margin-right: 10px !important;
+  }
+
+  .bookSearch {
+    margin-left: 10px !important;
+  }
+}

@@ -8,7 +8,7 @@ const BookList = props => {
       <h4 className="text-center m-2">{props.listName}</h4>
 
       <div
-        className="border border-dark mx-3 mb-4"
+        className="bookListBox border border-dark mx-3 mb-4"
         style={{ minHeight: "100px" }}
       >
         {props.bookArray.map(book => (
