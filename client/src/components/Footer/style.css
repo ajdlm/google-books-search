@@ -1,3 +1,15 @@
 .stickyFooter {
-    height: 120px;
+  height: 120px;
+}
+
+@media screen and (max-width: 360px) {
+  .stickyFooter {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 335px) {
+  .stickyFooter {
+    font-size: 13px;
+  }
 }
