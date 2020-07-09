@@ -2,10 +2,33 @@
   border-bottom: none !important;
 }
 
+@media screen and (max-width: 590px) {
+  .noResultsText {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .noResultsText {
+    font-size: 16.5px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .noResultsText {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
 @media screen and (max-width: 360px) {
   .bookListBox {
     margin-left: 10px !important;
     margin-right: 10px !important;
     font-size: 14px;
+  }
+
+  .noResultsText {
+    font-size: 15.5px;
   }
 }

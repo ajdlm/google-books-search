@@ -23,7 +23,7 @@ const BookList = (props) => {
             />
           ))
         ) : (
-          <h5 className="text-center py-4 my-3">{props.emptyListText}</h5>
+          <h5 className="noResultsText text-center py-4 my-3">{props.emptyListText}</h5>
         )}
       </div>
     </div>
