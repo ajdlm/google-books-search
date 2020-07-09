@@ -9,16 +9,17 @@ class Search extends Component {
   state = {
     query: "",
     results: [],
-    savedBooks: []
+    savedBooks: [],
+    noResultsText: "Click on the Search button to generate results.",
   };
 
   getSavedBooks = () => {
     axios
       .get("/api/books")
-      .then(response => {
+      .then((response) => {
         this.setState({ savedBooks: response.data });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   };
@@ -27,40 +28,46 @@ class Search extends Component {
     this.getSavedBooks();
   }
 
-  changeSearchInput = event => {
+  changeSearchInput = (event) => {
     this.setState({ query: event.target.value });
   };
 
-  searchForBook = event => {
+  searchForBook = (event) => {
     event.preventDefault();
 
     const newResultsArray = [];
 
     axios
       .get("https://www.googleapis.com/books/v1/volumes?q=" + this.state.query)
-      .then(results => {
-        results.data.items.map(book => {
-          const newResult = {
-            title: book.volumeInfo.title,
+      .then((results) => {
+        results.data.items
+          ? results.data.items.map((book) => {
+              console.log(book);
 
-            authors: book.volumeInfo.authors,
+              const newResult = {
+                title: book.volumeInfo.title,
 
-            description: book.volumeInfo.description,
+                authors: book.volumeInfo.authors,
 
-            image: book.volumeInfo.imageLinks.thumbnail,
+                description: book.volumeInfo.description,
 
-            link: book.volumeInfo.infoLink
-          };
+                image: book.volumeInfo.imageLinks
+                  ? book.volumeInfo.imageLinks.thumbnail
+                  : "no-image-available.png",
 
-          newResultsArray.push(newResult);
-        });
+                link: book.volumeInfo.infoLink,
+              };
+
+              newResultsArray.push(newResult);
+            })
+          : this.setState({ noResultsText: "No results found." });
 
         this.setState({ results: newResultsArray });
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   };
 
-  makeAuthorString = authorArray => {
+  makeAuthorString = (authorArray) => {
     let authorString = "";
 
     for (let i = 0; i < authorArray.length; i++) {
@@ -90,15 +97,15 @@ class Search extends Component {
     return alreadySaved;
   };
 
-  addNewBook = newBook => {
+  addNewBook = (newBook) => {
     axios
       .post("/api/books", newBook)
-      .then(response => {
+      .then((response) => {
         console.log(response);
 
         this.getSavedBooks();
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   };
@@ -123,6 +130,7 @@ class Search extends Component {
             makeAuthorString={this.makeAuthorString}
             isBookSaved={this.isBookSaved}
             secondButtonEvent={this.addNewBook}
+            emptyListText={this.state.noResultsText}
           />
         </BootstrapContainer>
       </div>

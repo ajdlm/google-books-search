@@ -70,6 +70,7 @@ class Saved extends Component {
             makeAuthorString={this.makeAuthorString}
             isBookSaved={this.neverShowSaved}
             secondButtonEvent={this.deleteBook}
+            emptyListText="No saved books."
           />
         </BootstrapContainer>
       </div>
